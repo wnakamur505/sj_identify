@@ -131,25 +131,21 @@ echo grouping10.txt
 python3 add_GRCh37_grouping9.py > add_GRCh37_grouping10.txt　
 echo add_GRCh37_grouping10.txt
 
-python3 countSJ_number.py > countSJ_number11.txt いまここ出待ち。
+#it takes 4-5hours
+python3 countSJ_number11.py > countSJ_number11.txt 
 echo countSJ_number11.txt 
 
+#it takes 4-5hours
+chmod +x sh_add_new_allele_status11.sh　　
+./sh_add_new_allele_status11.sh　　　
 
-#python3 add_new_allele_status11.py is below
-chmod +x sh_add_new_allele_status11.sh
-./sh_add_new_allele_status11.sh
-
-##########ここまで動作確認済み############
-
-python3 add_new_allele_status11_all.py > add_new_allele_status11_all.txt
-
-python3 add_ERR_zero11.py > add_ERR_zero11.txt　これ多分いらない。
-
-python3 add_new_allele_status_all_zero10_included.py > add_new_allele_status_all_zero11_included.txt これ多分いらない。
+python3 add_new_allele_status11_all.py > add_new_allele_status11_all.txt 
 
 python3 additional_SNP_information.py > additional_SNP_information.txt
 
-python3 group_and_snp_info.py > group_and_snp_info.txt
+python3 group_and_snp_info.py > group_and_snp_info_re.txt
+
+##########ここまで動作確認済み############
 
 #! /usr/bin/env Rscript
 

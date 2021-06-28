@@ -32,6 +32,6 @@ done
 
 
 #bash
-#chmod +x sh_Untitled13.sh
-#./sh_Untitled13.sh
+#chmod +x sh_add_new_allele_status11.sh
+#./sh_add_new_allele_status11.sh
 

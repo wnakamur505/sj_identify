@@ -15,7 +15,7 @@ with open("additional_SNP_information.txt","r") as hin:
         #{('chr19', '5928174', '45630159', '45630484', 'rs274793', '0.714657'): '266'}
         
 #with open("test_add_new_allele_status_all_zero11_included.txt","r") as hin:
-with open("add_new_allele_status_all_zero11_included.txt","r") as hin:
+with open("add_new_allele_status11_all.txt","r") as hin:
 
     for line in hin:
         F = line.rstrip('\n').split('\t')

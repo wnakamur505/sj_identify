@@ -12,8 +12,9 @@ with open("GRCh37_ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.
         GRCh37_dict[f[3]] = GRCh37_position
     
     
-with open("grouping9.txt","r") as hin:
-            
+#with open("grouping9.txt","r") as hin:
+with open("grouping10.txt","r") as hin:
+             
     for line in hin:
     
         F = line.rstrip('\n').split('\t')

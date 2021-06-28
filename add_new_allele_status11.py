@@ -55,7 +55,7 @@ with open ("SraRunTable.txt","r") as hin:
         conversion_dict[err_id] = hg_id
 
 with open ("countSJ_number11.txt","r") as hin:
-   
+
     for line in hin:
         f = line.rstrip('\n').split('\t')
         err_id2 = f[1]
