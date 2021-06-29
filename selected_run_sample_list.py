@@ -10,8 +10,8 @@ with open("select_sample_considered_duplication.txt","r") as hin:
         f = line.rstrip('\n').split('\t')
         ERR_id = f[0]
         
-        #files = glob.glob("/home/ubuntu/environment/current_issue/junc_utils/sen_genome/" + ERR_id + "/star/" + ERR_id + ".SJ.out.annot.tab")
-        files = glob.glob(ERR_id + "/star/" + ERR_id + ".SJ.out.annot.tab")
+        files = glob.glob("/home/ubuntu/environment/current_issue/junc_utils/sen_genome/" + ERR_id + "/star/" + ERR_id + ".SJ.out.annot.tab")
+        #files = glob.glob(ERR_id + "/star/" + ERR_id + ".SJ.out.annot.tab")
         
         for line in files:
             with open(line,"r") as hin:
