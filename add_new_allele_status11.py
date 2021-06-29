@@ -46,7 +46,7 @@ with gzip.open(input_file, mode='rt', encoding='utf-8') as hin:
                     pickup_dict[(group_id,sample_id_list[i])] = F[i+9]
 conversion_dict={}
 
-with open ("SraRunTable.txt","r") as hin:
+with open ("short_SraRunTable.txt","r") as hin:
     for line in hin:
         f = line.rstrip('\n').split('\t')
         if f[0].startswith("Run"):continue
@@ -71,5 +71,3 @@ with open ("countSJ_number11.txt","r") as hin:
                 allele_status2 = pickup_dict[search_position2]
                 
                 print(new_f + "\t" + allele_status2)
-                
-                #python3 Untitled13.py /work/rawdata/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz

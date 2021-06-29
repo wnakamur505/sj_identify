@@ -1,6 +1,5 @@
 import sys 
-input_file = sys.argv[1] #screening_junctionDB_first_half.txt
-#screening_junction_DB_last_half.py
+input_file = sys.argv[1] 
 
 with open(input_file,"r") as f:
     

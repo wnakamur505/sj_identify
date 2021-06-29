@@ -1,6 +1,5 @@
 GRCh37_dict={}
 
-#with open("testGRCh37.bed","r") as hin: 
 with open("GRCh37_ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.bed","r") as hin: 
   
     for line in hin:
@@ -12,7 +11,6 @@ with open("GRCh37_ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.
         GRCh37_dict[f[3]] = GRCh37_position
     
     
-#with open("grouping9.txt","r") as hin:
 with open("grouping10.txt","r") as hin:
              
     for line in hin:
@@ -31,7 +29,3 @@ with open("grouping10.txt","r") as hin:
             F2 = "\t".join(F) + '\t' + "\t".join(positions)
               
             print(F2)
-            #python3 add_GRCh37_grouping9.py > add_GRCh37_grouping9.txt
-            #wc grouping2.txt
-            #wc add_GRCh37_grouping3.txt
-            #wc add_GRCh37_grouping9.txt

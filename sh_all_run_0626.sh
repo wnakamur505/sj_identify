@@ -59,11 +59,13 @@ else
     gunzip hg19ToHg38.over.chain.gz
 fi
 
+
 #make bed file
 python3 vcftobed_all.py ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.vcf >  GRCh37_ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.bed
 
 #preintersect make b.bed
 /home/ubuntu/environment/current_issue/junc_utils/sen_genome/liftOver GRCh37_ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.bed hg19ToHg38.over.chain b.bed unmapped.bed
+
 
 #bedtools DL
 if [ ! -e bedtools ]; then
@@ -76,10 +78,9 @@ else
     echo "chmod a+x bedtools:done"
 fi
 
+
 # bedtools intersect
 bedtools intersect -wo -a a9.bed -b b.bed > c9.bed
-
-############ここまでやってみる########## Ok 
 
 #hg38.fa.gz DL
 if [ -e hg38.fa ];then
@@ -125,7 +126,7 @@ echo screening_junctionDB.txt
 python3 get_authentic_SJ_fromDB627.py > get_authentic_SJ_fromDB627.txt
 echo get_authentic_SJ_from_DB627.txt 
 
-python3 grouping10.py > grouping10.txt 
+python3 grouping10.py > grouping10.txt
 echo grouping10.txt 
 
 python3 add_GRCh37_grouping9.py > add_GRCh37_grouping10.txt　
@@ -145,6 +146,7 @@ python3 additional_SNP_information.py > additional_SNP_information.txt
 
 python3 group_and_snp_info.py > group_and_snp_info_re.txt
 
+
 ##########ここまで動作確認済み############
 
 #! /usr/bin/env Rscript
@@ -152,7 +154,23 @@ python3 group_and_snp_info.py > group_and_snp_info_re.txt
 #make accuracy of specific 26snps
 Rscript Logistic_result_multinom_CV.R #output:ac90_af5_HEW5_res_ternary_cutoff2_logistic.txt
 
-#最終更新：6/26
+#delete files
+#rm -f selected_run_sample_list.txt select_sample_considered_duplication.txt
+#rm -f ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.vcf
+#rm -f GRCh37_ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.bed
+#rm -f a9.bed b.bed c9.bed unmapped.bed
+#rm -f fetch_motif_sequence.txt reverse_complement9.txt search_motif9.txt
+#rm -f screening_junctionDB_first_half.txt screening_junctionDB.txt
+#rm -f get_authentic_SJ_fromDB627.txt grouping10.txt countSJ_number11.txt
+#rm -f add_new_allele_status11_chr*.txt additional_SNP_information.txt
+
+#deletes tools
+#rm hg38.fa
+#rm wgEncodeGencodeBasicV37.txt
+#rm hg19ToHg38.over.chain
+#rm bedtools liftOver
+
+#last update：6/29
 
 #chmod +x sh_all_run_0626.sh
 #./sh_all_run0626.sh
