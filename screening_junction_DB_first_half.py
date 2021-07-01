@@ -1,6 +1,5 @@
 import sys 
-input_file = sys.argv[1] #"wgEncodeGencodeBasicV37.txt"
-#screening_junction_DB_first_half.py
+input_file = sys.argv[1] 
 
 with open(input_file,"r") as f:
 
