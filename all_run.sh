@@ -136,8 +136,19 @@ python3 countSJ_number11.py > countSJ_number11.txt
 echo countSJ_number11.txt 
 
 #it takes 4-5hours
-chmod +x sh_add_new_allele_status11.sh　　
-./sh_add_new_allele_status11.sh　　　
+for i in $(seq 1 22)
+do
+    if [ ! -e /work/rawdata/ALL.chr${i}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz ];then
+        aws s3 cp s3://1000genomes/release/20130502/ALL.chr${i}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz /work/rawdata/
+        echo "DownLoaded chr ${i} vcf.gz file"
+    fi
+    
+    if [ -e /work/rawdata/ALL.chr${i}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz ];then
+        echo "making chr"${i}"txt file"
+        python3 add_new_allele_status11.py /work/rawdata/ALL.chr${i}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz > add_new_allele_status11_chr${i}.txt
+        
+    fi
+done
 
 python3 add_new_allele_status11_all.py > add_new_allele_status11_all.txt 
 echo "add_new_allele_status11_all.txt:done"
@@ -166,8 +177,6 @@ rm hg38.fa
 rm wgEncodeGencodeBasicV37.txt
 rm hg19ToHg38.over.chain
 rm bedtools liftOver
-
-##########ここまで動作確認済み############
 
 #! /usr/bin/env Rscript
 Rscript Logistic_result_multinom_CV.R 
