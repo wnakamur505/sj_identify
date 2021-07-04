@@ -11,8 +11,8 @@ with open("GTEx_group_GRCh37_binary.txt","r") as hin:
         group_id = f[0]
         chr = f[1].replace("chr","")
         GRCh37_position =f[36]
-        REF = f[3]
-        ALT = f[4]
+        REF = f[32]
+        ALT = f[33]
         snp_data = (chr,GRCh37_position,REF,ALT)
         
         if group_id not in search_dict: search_dict[group_id] = []
